@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Formulario from './components/Formulario';
+import ListaPeliculas from "./components/ListaPeliculas";
+
+import CategoriasProvider from './context/CategoriasContext';
+import PeliculasProvider from './context/PeliculasContext';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <PeliculasProvider>
+      <CategoriasProvider>
+        <Header />
+
+        <div className="uk-container">
+          <Formulario />
+
+          <ListaPeliculas />
+        </div>
+
+      </CategoriasProvider>
+    </PeliculasProvider>
   );
 }
 
 export default App;
+
